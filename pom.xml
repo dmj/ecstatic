@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>name.dmaus.util</groupId>
   <artifactId>ecstatic</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1</version>
 
   <name>Ecstatic</name>
   <url>https://github.com/dmj/ecstatic</url>

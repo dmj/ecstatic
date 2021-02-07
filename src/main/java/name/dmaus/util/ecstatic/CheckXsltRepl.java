@@ -55,6 +55,7 @@ public final class CheckXsltRepl
     {
         Processor saxon = new Processor(false);
         XsltCompiler compiler = saxon.newXsltCompiler();
+        compiler.setErrorListener(new ReplErrorListener());
 
         CheckXslt check = new CheckXslt(compiler);
         CheckXsltRepl repl = new CheckXsltRepl(System.console(), check);
@@ -68,10 +69,7 @@ public final class CheckXsltRepl
             InputStream input = readConsole();
             try {
                 check.check(new StreamSource(input));
-                System.out.println("OK.");
-            } catch (SaxonApiException e) {
-                System.out.println("ERROR.");
-            }
+            } catch (SaxonApiException e) {}
         }
     }
 
@@ -84,9 +82,11 @@ public final class CheckXsltRepl
             line = console.readLine();
             if (line != null) {
                 buf.append(line);
+                buf.append("\n");
             }
         } while (line != null);
 
         return new ByteArrayInputStream(buf.toString().getBytes());
     }
 }
+

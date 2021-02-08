@@ -43,7 +43,7 @@ Ecstatic CheckXsltRepl Emacs library
 The Emacs library implements a Flymake backend for XSLT stylesheets based on CheckXsltRepl.
 
 Put it into ```load-path``` and ```(require 'ecstatic-checkxslt)```. To enable the Flymake backend turn on the
-```ecstatic-checkxslt``` minor mode. Enabling it registers a Flymake backend function that starts a ```CheckXsltRepl```
+```ecstatic-checkxslt``` minor mode. Enabling it registers a Flymake backend function that starts a CheckXsltRepl
 process for the current buffer and uses it to check for static errors.
 
 You need to customize ```ecstatic-checkxslt-command``` with a commandline program that starts a CheckXstlRepl. The

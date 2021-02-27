@@ -75,6 +75,11 @@ REPORT-FN is the Flymake reporting function."
               (push (flymake-make-diagnostic source-buffer (car region) (cdr region) type message) diags))))
         (funcall report-fn diags :force t)))))
 
+(defun ecstatic-checkxslt-stylesheet-p ()
+  "Return non-nil if current document is a XSLT stylesheet."
+  (or (string= "http://www.w3.org/1999/XSL/Transform" (ecstatic-outermost-namespace-uri))
+      (and buffer-file-name (member (file-name-extension buffer-file-name) '("xsl" "xslt")))))
+
 (provide 'ecstatic-checkxslt)
 
 ;;; ecstatic-checkxslt.el ends here

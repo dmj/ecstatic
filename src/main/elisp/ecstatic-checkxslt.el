@@ -5,7 +5,7 @@
 
 ;;; Code:
 
-(require 'ecstatic)
+(require 'xmlutil)
 
 (defcustom ecstatic-checkxslt-command "checkxsltrepl"
   "Command required to start a CheckXstlRepl.

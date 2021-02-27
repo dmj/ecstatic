@@ -6,7 +6,7 @@
 
 ;;; Code:
 
-(defun ecstatic-outermost-namespace-uri ()
+(defun xmlutil-outermost-namespace-uri ()
   "Return namespace URI of outermost element."
   (save-excursion
     (save-restriction
@@ -14,10 +14,10 @@
       (while (and (xmltok-forward)
                   (not (eq 'start-tag xmltok-type))))
       (when (eq 'start-tag xmltok-type)
-        (ecstatic-namespace-uri-by-prefix
+        (xmlutil-namespace-uri-by-prefix
          (xmltok-start-tag-prefix) xmltok-namespace-attributes)))))
 
-(defun ecstatic-namespace-uri-by-prefix (prefix bindings)
+(defun xmlutil-namespace-uri-by-prefix (prefix bindings)
   "Return URI for PREFIX defined in BINDINGS."
   (let (uri)
     (while (and bindings (null uri))
@@ -32,6 +32,6 @@
       (setq bindings (cdr bindings)))
     uri))
 
-(provide 'ecstatic)
+(provide 'xmlutil)
 
 ;;; ecstatic.el ends here

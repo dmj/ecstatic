@@ -27,8 +27,11 @@ with the executable followed by arguments."
 
 (defun ecstatic-checkxslt-enable ()
   "Enable CheckXsltRepl in current buffer."
-  (unless (memq 'ecstatic-checkxslt-flymake flymake-diagnostic-functions)
-    (add-hook 'flymake-diagnostic-functions #'ecstatic-checkxslt-flymake 0 t)))
+  (if (or (ecstatic-checkxslt-stylesheet-p)
+          (y-or-n-p "Enable CheckXslt mode anyway? "))
+      (unless (memq 'ecstatic-checkxslt-flymake flymake-diagnostic-functions)
+        (add-hook 'flymake-diagnostic-functions #'ecstatic-checkxslt-flymake 0 t))
+    (ecstatic-checkxslt-disable)))
 
 (defun ecstatic-checkxslt-disable ()
   "Disable CheckXsltRepl in current buffer."

@@ -5,6 +5,8 @@
 
 ;;; Code:
 
+(require 'ecstatic)
+
 (defcustom ecstatic-checkxslt-command "checkxsltrepl"
   "Command required to start a CheckXstlRepl.
 A string with an executable starting a CheckXstlRepl or a list
